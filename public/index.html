@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Hệ thống thông tin - Công an tỉnh </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="<%= BASE_URL %>assets/img/favicon.png" rel="icon">
+  <link href="<%= BASE_URL %>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <link href="<%= BASE_URL %>assets/css/font-css.css" rel="stylesheet">
+ <!-- Vendor CSS Files -->
+  <link href="<%= BASE_URL %>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<%= BASE_URL %>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<%= BASE_URL %>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<%= BASE_URL %>assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="<%= BASE_URL %>assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="<%= BASE_URL %>assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<%= BASE_URL %>assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="<%= BASE_URL %>assets/vendor/yearpicker/yearpicker.css" rel="stylesheet"></script>
+  <link rel="stylesheet" href="<%= BASE_URL %>css/jquery.fileupload.css" />
+
+  <!-- Template Main CSS File -->
+
+
+  <link href="<%= BASE_URL %>assets/css/style.css" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+    .bg {
+      position: relative;
+      height: 100vh;
+      background-color: #eadda9;
+    }
+
+    .circle-login {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vh; /* Adjust size as needed */
+      height: 100vh; /* Adjust size as needed */
+      background-image: url("<%= BASE_URL %>circle.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: rotateBackground 20s linear infinite;
+    }
+
+    .text-login {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vh; /* Adjust size as needed */
+      height: 70vh; /* Adjust size as needed */
+      background-image: url("<%= BASE_URL %>background_text.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    @keyframes rotateBackground {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    .bg-login {
+      --bs-bg-opacity: 1;
+      background-color: #eadda9;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    
+  </div>
+ 
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ 
+  <a  class="back-to-bottom d-flex align-items-center justify-content-center"><i class="bi bi-arrow-down-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="<%= BASE_URL %>js/jquery-3.6.0.min.js"></script>
+  <script src="<%= BASE_URL %>common.js"></script>
+  <script src="<%= BASE_URL %>jquery.table2excel.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/echarts/echarts.min.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/quill/quill.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/php-email-form/validate.js"></script>
+  <script src="<%= BASE_URL %>js/moment/moment.min.js"></script>
+  <script src="<%= BASE_URL %>assets/vendor/yearpicker/yearpicker.js" async></script>
+  <!-- Template Main JS File -->
+  <script type="module" src="<%= BASE_URL %>assets/js/main.js"></script>
+
+
+</body>
+
+</html>

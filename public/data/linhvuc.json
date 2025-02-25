@@ -1,0 +1,22 @@
+{
+    "linhvuc": [
+      {
+        "id": 1,
+        "ten": "Ma túy",
+        "ghichu": "",
+        "thutu": 0
+      },
+      {
+        "id": 2,
+        "ten": "Buôn lậu",
+        "ghichu": "Buôn lậu hàng hóa qua biên giới",
+        "thutu": 1
+      },
+      {
+        "id": 3,
+        "ten": "Hàng giả",
+        "ghichu": "Sản xuất và buôn bán hàng giả",
+        "thutu": 2
+      }
+    ]
+  }

@@ -1,0 +1,18 @@
+{
+    "toidanh": [
+      {
+        "id": 1,
+        "ten": "VPQĐ về quản lý, sử dụng chất ma túy, tiền chất...",
+        "linhvuc": 1,
+        "ghichu": "Buôn lậu hàng hóa qua biên giới",
+        "thutu": 0
+      },
+      {
+        "id": 2,
+        "ten": "VPQĐ về quản lý, sử dụng chất ma túy, tiền chất...",
+        "linhvuc": 4,
+        "ghichu": "Buôn lậu hàng hóa qua biên giới",
+        "thutu": 0
+      }
+    ]
+  }
