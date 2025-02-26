@@ -45,7 +45,7 @@
       <div class="d-flex align-items-center justify-content-between">
         <a href="/home" class="logo d-flex align-items-center">
           <img src="/assets/img/logo.png" alt="">
-          <span class="d-none d-lg-block" style="font-size: larger;">Hệ thống thông tin</span>
+          <span class="d-none d-lg-block" style="font-size: larger;">Số liệu cơ bản</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn" @click="toggle_sidebar_onclick"></i>
       </div><!-- End Logo -->
