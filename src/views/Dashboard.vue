@@ -273,7 +273,7 @@
                           </template>
 
 
-                          <span class="text-muted small ms-2">{{baocaodinhky.thoiGianGui}}</span>
+                          <span class="text-muted small ms-2">{{convertToClientTime(baocaodinhky.thoiGianGui)}}</span>
                         </div>
                       </div>
                       <div class="text-start my-auto" v-show="get_current_user?.donVi?.maDonVi == baocaodinhky.maDonVi">
@@ -421,7 +421,6 @@
           (res) => {
             if (res.success) {
               this.kybaocaos = res.data;
-              console.log("this.ngaybaocao: ", this.ngaybaocao)
               this.kybaocao_select = {};
               let ngayhientai_moment = moment(this.ngaybaocao, DEFAULT_DATE_FORMAT);
               this.kybaocaos.forEach(kybaocao_item => {
@@ -635,7 +634,26 @@
         }
         return isHave;
 
-      }
+      },
+      convertToClientTime(dateString) {
+        if (!dateString) return "";
+
+        // Thêm 'Z' để xác định đây là giờ UTC
+        const date = new Date(dateString + "Z");
+
+        // Kiểm tra nếu Date không hợp lệ
+        if (isNaN(date.getTime())) return "Ngày không hợp lệ";
+
+        // Format thành dd/mm/yyyy hh:mm
+        return new Intl.DateTimeFormat("vi-VN", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false, // Sử dụng định dạng 24h
+        }).format(date).replace(",", "");
+      },
     },
     computed: {
       is_CAT_User() {
