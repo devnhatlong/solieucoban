@@ -421,7 +421,7 @@
           (res) => {
             if (res.success) {
               this.kybaocaos = res.data;
-
+              console.log("this.ngaybaocao: ", this.ngaybaocao)
               this.kybaocao_select = {};
               let ngayhientai_moment = moment(this.ngaybaocao, DEFAULT_DATE_FORMAT);
               this.kybaocaos.forEach(kybaocao_item => {
