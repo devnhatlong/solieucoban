@@ -89,7 +89,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            {{baocaodinhky.thoiGianGui}}
+                                            {{convertToClientTime(baocaodinhky.thoiGianGui)}}
                                         </td>
                                         <td>
                                             <button class="btn btn-default btn-sm p-0 m-0" v-show="baocaodinhky.noiDung.length>0"  @click="xemnoidung_onclick(baocaodinhky)"><i class="bi bi-card-text"></i></button>
@@ -408,7 +408,26 @@
                     }
                 }
                 return -1;
-            }
+            },
+            convertToClientTime(dateString) {
+                if (!dateString) return "";
+
+                // Thêm 'Z' để xác định đây là giờ UTC
+                const date = new Date(dateString + "Z");
+
+                // Kiểm tra nếu Date không hợp lệ
+                if (isNaN(date.getTime())) return "Ngày không hợp lệ";
+
+                // Format thành dd/mm/yyyy hh:mm
+                return new Intl.DateTimeFormat("vi-VN", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false, // Sử dụng định dạng 24h
+                }).format(date).replace(",", "");
+            },
         },
         created() {
             this.laydulieubandau();
