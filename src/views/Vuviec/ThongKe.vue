@@ -247,7 +247,7 @@
 </template>
 <script>
   import VuViecService from "../../services/vuviec.service";
-
+  import * as XLSX from 'xlsx';
   export default {
     data() {
       return {
@@ -467,15 +467,29 @@
         sumdata.taiSanThuHoi = Math.round(data.taiSanThuHoi * 100) / 100;
       },
 
-      exportExcel() {
-        $("#tableThongKe").table2excel({
-          exclude: ".noExl",
-          name: "Worksheet Name",
-          filename: "trichxuat_thongkevuviec",
-          fileext: ".xls", // file extension
-          preserveColors: true
+      // exportExcel() {
+      //   $("#tableThongKe").table2excel({
+      //     exclude: ".noExl",
+      //     name: "Worksheet Name",
+      //     filename: "trichxuat_thongkevuviec",
+      //     fileext: ".xls", // file extension
+      //     preserveColors: true
 
-        });
+      //   });
+      // },
+      exportExcel() {
+        // Lấy phần tử bảng
+        const table = document.getElementById('tableThongKe');
+        
+        // Chuyển đổi bảng thành worksheet
+        const worksheet = XLSX.utils.table_to_sheet(table);
+        
+        // Tạo workbook mới và thêm worksheet vào
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Worksheet Name');
+        
+        // Xuất workbook ra file .xlsx
+        XLSX.writeFile(workbook, 'thongkevuviec.xlsx');
       },
       apdung_onclick() {
         $("#truongthongtin_backdrop").modal('hide');

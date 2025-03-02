@@ -43,8 +43,8 @@
         <div class="col-12 text-center">
           <button id="Button1" class="btn btn-primary px-4 mx-1" type="button" @click="thongke">Xem thống
             kê</button>
-          <button class="btn btn-info  mx-1" type="button" onclick="PrintElem('divThongkeVuViec')">In thống kê
-            <i class="bi bi-printer"></i></button>
+            <button class="btn btn-info  mx-1" type="button" @click="exportExcel">Xuất excel
+              <i class="bi bi-printer"></i></button>
 
           <button type="button" class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#danhmuc_backdrop">
             Chọn trường thông tin
@@ -82,7 +82,7 @@
       </div>
 
       <div class="row mb-3" id="divThongkeVuViec">
-        <table class="table table-sm table-bordered small table-striped text-center">
+        <table id="tableThongKePCCC" class="table table-sm table-bordered small table-striped text-center">
           <thead>
             <tr class="text-center align-middle">
               <td scope="col" rowspan="2">#</td>
@@ -130,7 +130,7 @@
 </template>
 <script>
   import PcccService from "../../services/pccc.service";
-
+  import * as XLSX from 'xlsx';
   export default {
     data() {
       return {
@@ -278,6 +278,20 @@
         sumdata.soNguoiBiThuongNang = 0;
         sumdata.soNguoiBiThuongNhe = 0;
         sumdata.taiSanThietHai = 0;
+      },
+      exportExcel() {
+        // Lấy phần tử bảng
+        const table = document.getElementById('tableThongKePCCC');
+        
+        // Chuyển đổi bảng thành worksheet
+        const worksheet = XLSX.utils.table_to_sheet(table);
+        
+        // Tạo workbook mới và thêm worksheet vào
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Worksheet Name');
+        
+        // Xuất workbook ra file .xlsx
+        XLSX.writeFile(workbook, 'thongkesolieupccc.xlsx');
       },
       apdung_onclick() {
         $("#danhmuc_backdrop").modal('hide');

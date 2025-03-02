@@ -33,7 +33,8 @@
     "vue-tabs-component": "^1.5.0",
     "vue3-tabs-component": "^1.3.7",
     "vuejs-datepicker": "^1.6.2",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
