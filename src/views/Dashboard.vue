@@ -534,7 +534,8 @@
                 if (baocaodinhky_item.tepDinhKem.length > 0) {
                   let fileObjs = JSON.parse(baocaodinhky_item.tepDinhKem);
                   for (var j = 0; j < fileObjs.length; j++) {
-                    fileObjs[j].path = process.env.VUE_APP_ROOT_API + "baocao/download/" + encodeURIComponent(fileObjs[j].path);
+                    // fileObjs[j].path = process.env.VUE_APP_ROOT_API + "baocao/download/" + encodeURIComponent(fileObjs[j].path);
+                    fileObjs[j].path = "download/"  + encodeURIComponent(fileObjs[j].path);
                   }
                   baocaodinhky_item.files = fileObjs;
                 }
