@@ -57,12 +57,22 @@
                             <div id="div_display_prepare_files"></div>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <!-- <div class="row mb-3">
                         <div>
                             <button class="btn btn-primary" @click="guibaocao_onclick" type="button"><i
                                     class="bi bi-upload"></i> Gửi báo cáo</button>
                         </div>
 
+                    </div> -->
+                    <div class="row mb-3">
+                        <div>
+                            <button class="btn btn-primary" @click="guibaocao_onclick" type="button" :disabled="!canSendReport">
+                                <i class="bi bi-upload"></i> Gửi báo cáo
+                            </button>
+                            <div v-if="!canSendReport">
+                                <p style="color: red; font-weight: 700;">{{ timeUntilNextDayStr }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -177,6 +187,8 @@
                 baocaodinhky_select: {},
                 linhvucchuyendebaocaos: [],
                 maLinhVucChuyenDeBaoCaoSelected: 0,
+                canSendReport: false,
+                timeUntilNextDayStr: ''
             }
         },
         created() {
@@ -194,6 +206,8 @@
                     (res) => {
                         loader.hide();
                         try {
+                            this.canSendReport = res.data.canSendReport;
+                            this.timeUntilNextDayStr = res.data.timeUntilNextDay;
                             this.loaikybaocaos = res.data.loaiKyBaoCaos;
                             if (this.loaikybaocaos.length > 0) {
                                 if(this.maLoaiKyBaoCaoSelected==0){
@@ -280,6 +294,7 @@
 
                     });
             },
+            
             on_change_file_input(event) {
                 var files = event.target.files;
                 for (let i = 0, f; f = files[i]; i++) {
@@ -326,6 +341,14 @@
                 $("#myModal").modal('show');
             },
             guibaocao_onclick() {
+                if (!this.canSendReport) {
+                    this.$swal.fire({
+                        title: "Thông báo",
+                        text: "Không thể gửi báo cáo sau 10h sáng. Vui lòng chờ đến ngày mới.",
+                        icon: "warning"
+                    });
+                    return;
+                }
                 
                 this.baocaodinhky_current.tepDinhKem = JSON.stringify(this.files_uploaded);
 
